@@ -4,20 +4,20 @@
         ""
     ],
     "companyName": "Alexander the Dev",
-    "longName": "The Minimal Watchface",
+    "longName": "The Patriotic",
     "projectType": "native",
     "resources": {
         "media": []
     },
     "sdkVersion": "3",
-    "shortName": "Min Face",
+    "shortName": "Patriotic",
     "targetPlatforms": [
         "aplite",
         "basalt",
         "chalk"
     ],
     "uuid": "e368dce3-09af-4d27-9ce2-36a9ab578075",
-    "versionLabel": "0.1",
+    "versionLabel": "0.2",
     "watchapp": {
         "watchface": true
     }
