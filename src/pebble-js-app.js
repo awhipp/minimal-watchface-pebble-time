@@ -13,12 +13,12 @@ Pebble.addEventListener('webviewclosed', function(e) {
   var configData = JSON.parse(decodeURIComponent(e.response));
   console.log('Configuration page returned: ' + JSON.stringify(configData));
 
-  var backgroundColor = configData['country'];
-
+  var country = parseInt(configData['country']);
+  console.log(country);
+  
   var dict = {};
-  if(configData['country'] === true) {
-    dict['country'] = configData['country'];  
-  }
+  dict['KEY_COUNTRY'] = country;  
+  console.log(JSON.stringify(dict));
 
   // Send to watchapp
   Pebble.sendAppMessage(dict, function() {

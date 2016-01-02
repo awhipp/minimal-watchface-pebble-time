@@ -6,11 +6,22 @@ static TextLayer *s_time_layer_minute;
 static TextLayer *s_date_layer;
 static TextLayer *s_day_layer;
 
+#define KEY_COUNTRY     0
+
 // Write the current hours and minutes into a buffer
 static char s_buffer_hour[] = "0000";
 static char s_buffer_min[] = "0000";
 static char s_date_buffer[] = "XXXX XX";
 static char s_day_buffer[] = "XXX";
+
+static void inbox_received_handler(DictionaryIterator *iter, void *context) {
+  Tuple *country_t = dict_find(iter, KEY_COUNTRY);
+  if(country_t  && country_t->value->int8 == 0) {
+    window_set_background_color(s_main_window, GColorWhite);
+  } else {
+    window_set_background_color(s_main_window, GColorBlack);
+  }
+}
 
 static void tick_handler(struct tm *tick_time, TimeUnits units_changed) {
 
@@ -92,6 +103,10 @@ static void init() {
   // Create main Window element and assign to pointer
   s_main_window = window_create();
   window_set_background_color(s_main_window, GColorBlack);
+  
+  app_message_register_inbox_received(inbox_received_handler);
+  app_message_open(app_message_inbox_size_maximum(), app_message_outbox_size_maximum());
+  
   // Set handlers to manage the elements inside the Window
   window_set_window_handlers(s_main_window, (WindowHandlers) {
     .load = main_window_load,

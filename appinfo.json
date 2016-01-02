@@ -1,5 +1,7 @@
 {
-    "appKeys": {},
+    "appKeys": {
+        "KEY_COUNTRY": 0
+    },
     "capabilities": [
         "configurable"
     ],
