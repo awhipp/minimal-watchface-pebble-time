@@ -1,13 +1,20 @@
 {
     "appKeys": {},
     "capabilities": [
-        ""
+        "configurable"
     ],
     "companyName": "Alexander the Dev",
     "longName": "The Patriotic",
     "projectType": "native",
     "resources": {
-        "media": []
+        "media": [
+            {
+                "file": "images/menu_icon",
+                "name": "IMAGE_MENU_ICON",
+                "targetPlatforms": null,
+                "type": "png"
+            }
+        ]
     },
     "sdkVersion": "3",
     "shortName": "Patriotic",
