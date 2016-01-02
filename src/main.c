@@ -7,7 +7,7 @@ static TextLayer *s_date_layer;
 static TextLayer *s_day_layer;
 
 #define KEY_COUNTRY     0
-static int8_t code;
+static int8_t code = 0;
 
 
 // Write the current hours and minutes into a buffer
@@ -21,10 +21,6 @@ static void inbox_received_handler(DictionaryIterator *iter, void *context) {
   
   if(country_t) {
     code = country_t->value->int8;
-    
-    window_set_background_color(s_main_window, GColorBlack);
-  } else {
-    window_set_background_color(s_main_window, GColorBlack);
   }
 }
 
@@ -65,6 +61,7 @@ static void main_window_load(Window *window) {
   GColor toptext = GColorRed;
   GColor bottomtext = GColorBlue;
 
+  APP_LOG(APP_LOG_LEVEL_DEBUG, "Loop index now %d", code);
     if(code == 0){ // USA
       striping = GColorWhite;
       toptext = GColorRed;
@@ -139,6 +136,7 @@ static void init() {
   app_message_open(app_message_inbox_size_maximum(), app_message_outbox_size_maximum());
   
   s_main_window = window_create();
+  window_set_background_color(s_main_window, GColorBlack);
   
   // Set handlers to manage the elements inside the Window
   window_set_window_handlers(s_main_window, (WindowHandlers) {
