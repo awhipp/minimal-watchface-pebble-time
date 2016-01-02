@@ -7,9 +7,7 @@ static TextLayer *s_date_layer;
 static TextLayer *s_day_layer;
 
 #define KEY_COUNTRY     0
-static GColor striping;
-static GColor toptext;
-static GColor bottomtext;
+static int8_t code;
 
 
 // Write the current hours and minutes into a buffer
@@ -21,28 +19,9 @@ static char s_day_buffer[] = "XXX";
 static void inbox_received_handler(DictionaryIterator *iter, void *context) {
   Tuple *country_t = dict_find(iter, KEY_COUNTRY);
   
-  striping = GColorWhite;
-  toptext = GColorRed;
-  bottomtext = GColorBlue;
-  
   if(country_t) {
-    int8_t code = country_t->value->int8;
-    if(code == 0){ // USA
-      striping = GColorWhite;
-      toptext = GColorRed;
-      bottomtext = GColorBlue;
-    }
-    if(code == 1){ // Argentina
-      striping = GColorCadetBlue;
-      toptext = GColorChromeYellow;
-      bottomtext = GColorWhite;
-    }
-    if(code == 2){ // England
-      striping = GColorCobaltBlue;
-      toptext = GColorWhite;
-      bottomtext = GColorDarkCandyAppleRed;
-      
-    }
+    code = country_t->value->int8;
+    
     window_set_background_color(s_main_window, GColorBlack);
   } else {
     window_set_background_color(s_main_window, GColorBlack);
@@ -80,7 +59,28 @@ static void main_window_load(Window *window) {
   GRect bounds = layer_get_bounds(window_layer);
 
   // Create the TextLayer with specific bounds
-  
+
+
+  GColor striping = GColorWhite;
+  GColor toptext = GColorRed;
+  GColor bottomtext = GColorBlue;
+
+    if(code == 0){ // USA
+      striping = GColorWhite;
+      toptext = GColorRed;
+      bottomtext = GColorBlue;
+    }
+    if(code == 1){ // Argentina
+      striping = GColorCadetBlue;
+      toptext = GColorChromeYellow;
+      bottomtext = GColorWhite;
+    }
+    if(code == 2){ // England
+      striping = GColorCobaltBlue;
+      toptext = GColorWhite;
+      bottomtext = GColorDarkCandyAppleRed;
+    }
+
   s_day_layer = text_layer_create(GRect(0, PBL_IF_ROUND_ELSE(5, 5), bounds.size.w, 50));
   text_layer_set_text_color(s_day_layer, GColorWhite);
   text_layer_set_background_color(s_day_layer, GColorBlack);
