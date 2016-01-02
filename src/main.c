@@ -21,6 +21,37 @@ static void inbox_received_handler(DictionaryIterator *iter, void *context) {
   
   if(country_t) {
     code = country_t->value->int8;
+}
+
+}
+
+static void tick_handler(struct tm *tick_time, TimeUnits units_changed) {
+
+  // Display this time on the TextLayer
+  strftime(s_buffer_hour, sizeof(s_buffer_hour), clock_is_24h_style() ? "%H" : "%I", tick_time);
+  
+  char *s;
+
+s = s_buffer_hour;
+  if(!clock_is_24h_style()){
+while (*s && *s == '0') s++; /* find the first non '0' element */
+printf("%s\n",s); /* now use s instead of str */
+  }
+  
+  text_layer_set_text(s_time_layer_hour, s);
+  
+  strftime(s_buffer_min, sizeof(s_buffer_min), clock_is_24h_style() ? "%M" : "%M", tick_time);
+  text_layer_set_text(s_time_layer_minute, s_buffer_min);
+  
+  strftime(s_date_buffer, sizeof(s_date_buffer), "%b %e", tick_time);
+  text_layer_set_text(s_date_layer, s_date_buffer);
+  
+  strftime(s_day_buffer, sizeof(s_day_buffer), "%a", tick_time);
+  text_layer_set_text(s_day_layer, s_day_buffer);
+
+  GColor striping = GColorWhite;
+  GColor toptext = GColorRed;
+  GColor bottomtext = GColorBlue;
 
 APP_LOG(APP_LOG_LEVEL_DEBUG, "Loop index now %d", code);
     if(code == 0){ // USA
@@ -52,33 +83,6 @@ APP_LOG(APP_LOG_LEVEL_DEBUG, "Loop index now %d", code);
   text_layer_set_font(s_time_layer_minute, fonts_get_system_font(FONT_KEY_BITHAM_42_MEDIUM_NUMBERS));
   text_layer_set_text_alignment(s_time_layer_minute, GTextAlignmentCenter);
   
-}
-
-}
-
-static void tick_handler(struct tm *tick_time, TimeUnits units_changed) {
-
-  // Display this time on the TextLayer
-  strftime(s_buffer_hour, sizeof(s_buffer_hour), clock_is_24h_style() ? "%H" : "%I", tick_time);
-  
-  char *s;
-
-s = s_buffer_hour;
-  if(!clock_is_24h_style()){
-while (*s && *s == '0') s++; /* find the first non '0' element */
-printf("%s\n",s); /* now use s instead of str */
-  }
-  
-  text_layer_set_text(s_time_layer_hour, s);
-  
-  strftime(s_buffer_min, sizeof(s_buffer_min), clock_is_24h_style() ? "%M" : "%M", tick_time);
-  text_layer_set_text(s_time_layer_minute, s_buffer_min);
-  
-  strftime(s_date_buffer, sizeof(s_date_buffer), "%b %e", tick_time);
-  text_layer_set_text(s_date_layer, s_date_buffer);
-  
-  strftime(s_day_buffer, sizeof(s_day_buffer), "%a", tick_time);
-  text_layer_set_text(s_day_layer, s_day_buffer);
 }
 
 static void main_window_load(Window *window) {
