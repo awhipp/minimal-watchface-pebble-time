@@ -7,6 +7,10 @@ static TextLayer *s_date_layer;
 static TextLayer *s_day_layer;
 
 #define KEY_COUNTRY     0
+static GColor striping;
+static GColor toptext;
+static GColor bottomtext;
+
 
 // Write the current hours and minutes into a buffer
 static char s_buffer_hour[] = "0000";
@@ -16,8 +20,30 @@ static char s_day_buffer[] = "XXX";
 
 static void inbox_received_handler(DictionaryIterator *iter, void *context) {
   Tuple *country_t = dict_find(iter, KEY_COUNTRY);
-  if(country_t  && country_t->value->int8 == 0) {
-    window_set_background_color(s_main_window, GColorWhite);
+  
+  striping = GColorWhite;
+  toptext = GColorRed;
+  bottomtext = GColorBlue;
+  
+  if(country_t) {
+    int8_t code = country_t->value->int8;
+    if(code == 0){ // USA
+      striping = GColorWhite;
+      toptext = GColorRed;
+      bottomtext = GColorBlue;
+    }
+    if(code == 1){ // Argentina
+      striping = GColorCadetBlue;
+      toptext = GColorChromeYellow;
+      bottomtext = GColorWhite;
+    }
+    if(code == 2){ // England
+      striping = GColorCobaltBlue;
+      toptext = GColorWhite;
+      bottomtext = GColorDarkCandyAppleRed;
+      
+    }
+    window_set_background_color(s_main_window, GColorBlack);
   } else {
     window_set_background_color(s_main_window, GColorBlack);
   }
@@ -63,14 +89,14 @@ static void main_window_load(Window *window) {
   text_layer_set_text(s_day_layer, "Day");
   
   s_time_layer_hour = text_layer_create(GRect(0, PBL_IF_ROUND_ELSE(35, 35), bounds.size.w, 50));
-  text_layer_set_text_color(s_time_layer_hour, GColorRed);
-  text_layer_set_background_color(s_time_layer_hour, GColorWhite);
+  text_layer_set_text_color(s_time_layer_hour, toptext);
+  text_layer_set_background_color(s_time_layer_hour, striping);
   text_layer_set_font(s_time_layer_hour, fonts_get_system_font(FONT_KEY_BITHAM_42_MEDIUM_NUMBERS));
   text_layer_set_text_alignment(s_time_layer_hour, GTextAlignmentCenter);
   
   s_time_layer_minute = text_layer_create(GRect(0, PBL_IF_ROUND_ELSE(95, 90), bounds.size.w, 50));
-  text_layer_set_text_color(s_time_layer_minute, GColorBlue);
-  text_layer_set_background_color(s_time_layer_minute, GColorWhite);
+  text_layer_set_text_color(s_time_layer_minute, bottomtext);
+  text_layer_set_background_color(s_time_layer_minute, striping);
   text_layer_set_font(s_time_layer_minute, fonts_get_system_font(FONT_KEY_BITHAM_42_MEDIUM_NUMBERS));
   text_layer_set_text_alignment(s_time_layer_minute, GTextAlignmentCenter);
   
@@ -108,13 +134,11 @@ static void main_window_unload(Window *window) {
 
 
 static void init() {
-
-  // Create main Window element and assign to pointer
-  s_main_window = window_create();
-  window_set_background_color(s_main_window, GColorBlack);
   
   app_message_register_inbox_received(inbox_received_handler);
   app_message_open(app_message_inbox_size_maximum(), app_message_outbox_size_maximum());
+  
+  s_main_window = window_create();
   
   // Set handlers to manage the elements inside the Window
   window_set_window_handlers(s_main_window, (WindowHandlers) {
