@@ -34,9 +34,9 @@
 	    <label class="item">
 	      Select Country
 	      <select id="select_country" name="select-country" dir='rtl' class="item-select">
-	        <option class="item-select-option" value="0" selected>United States</option>
-	        <option class="item-select-option" value="1">Argentina</option>
-	        <option class="item-select-option" value="2">England</option>
+	        <option class="item-select-option" value="US" selected>United States</option>
+	        <option class="item-select-option" value="Argentina">Argentina</option>
+	        <option class="item-select-option" value="England">England</option>
 	      </select>
     	</label>
       </div>
@@ -54,7 +54,7 @@
   <script>
   function getConfigData() {
 	var e = document.getElementById("select_country");
-	var country = parseInt(e.options[e.selectedIndex].value); 
+	var country = e.options[e.selectedIndex].value; 
 
     var options = {
       'country': country
