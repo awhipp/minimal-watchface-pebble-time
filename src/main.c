@@ -60,28 +60,21 @@ APP_LOG(APP_LOG_LEVEL_DEBUG, "Loop index now %d", code);
       bottomtext = GColorBlue;
     }
     if(code == 1){ // Argentina
-      striping = GColorCadetBlue;
-      toptext = GColorChromeYellow;
+      striping = GColorBlueMoon;
+      toptext = GColorYellow;
       bottomtext = GColorWhite;
     }
     if(code == 2){ // England
       striping = GColorCobaltBlue;
       toptext = GColorWhite;
-      bottomtext = GColorDarkCandyAppleRed;
+      bottomtext = GColorRed;
     }
 
   
-  s_time_layer_hour = text_layer_create(GRect(0, PBL_IF_ROUND_ELSE(35, 35), bounds.size.w, 50));
   text_layer_set_text_color(s_time_layer_hour, toptext);
   text_layer_set_background_color(s_time_layer_hour, striping);
-  text_layer_set_font(s_time_layer_hour, fonts_get_system_font(FONT_KEY_BITHAM_42_MEDIUM_NUMBERS));
-  text_layer_set_text_alignment(s_time_layer_hour, GTextAlignmentCenter);
-  
-  s_time_layer_minute = text_layer_create(GRect(0, PBL_IF_ROUND_ELSE(95, 90), bounds.size.w, 50));
   text_layer_set_text_color(s_time_layer_minute, bottomtext);
   text_layer_set_background_color(s_time_layer_minute, striping);
-  text_layer_set_font(s_time_layer_minute, fonts_get_system_font(FONT_KEY_BITHAM_42_MEDIUM_NUMBERS));
-  text_layer_set_text_alignment(s_time_layer_minute, GTextAlignmentCenter);
   
 }
 
@@ -104,14 +97,14 @@ static void main_window_load(Window *window) {
       bottomtext = GColorBlue;
     }
     if(code == 1){ // Argentina
-      striping = GColorCadetBlue;
-      toptext = GColorChromeYellow;
+      striping = GColorBlueMoon;
+      toptext = GColorYellow;
       bottomtext = GColorWhite;
     }
     if(code == 2){ // England
       striping = GColorCobaltBlue;
       toptext = GColorWhite;
-      bottomtext = GColorDarkCandyAppleRed;
+      bottomtext = GColorRed;
     }
 
   s_day_layer = text_layer_create(GRect(0, PBL_IF_ROUND_ELSE(5, 5), bounds.size.w, 50));
