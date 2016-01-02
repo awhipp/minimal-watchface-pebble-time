@@ -27,7 +27,16 @@ static void tick_handler(struct tm *tick_time, TimeUnits units_changed) {
 
   // Display this time on the TextLayer
   strftime(s_buffer_hour, sizeof(s_buffer_hour), clock_is_24h_style() ? "%H" : "%I", tick_time);
-  text_layer_set_text(s_time_layer_hour, s_buffer_hour);
+  
+  char *s;
+
+s = s_buffer_hour;
+  if(!clock_is_24h_style()){
+while (*s && *s == '0') s++; /* find the first non '0' element */
+printf("%s\n",s); /* now use s instead of str */
+  }
+  
+  text_layer_set_text(s_time_layer_hour, s);
   
   strftime(s_buffer_min, sizeof(s_buffer_min), clock_is_24h_style() ? "%M" : "%M", tick_time);
   text_layer_set_text(s_time_layer_minute, s_buffer_min);
