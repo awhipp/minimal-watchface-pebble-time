@@ -15,7 +15,17 @@ static char s_day_buffer[] = "XXX";
 static void tick_handler(struct tm *tick_time, TimeUnits units_changed) {
 
   // Display this time on the TextLayer
-  strftime(s_buffer_hour, sizeof(s_buffer_hour), clock_is_24h_style() ? "%H" : "%I", tick_time);
+  strftime(s_buffer_hour, sizeof(s_buffer_hour), clock_is_24h_style() ? "%H" : "%l", tick_time);
+  char* i = s_buffer_hour;
+  char* j = s_buffer_hour;
+  while(*j != 0)
+  {
+    *i = *j++;
+    if(*i != ' ')
+      i++;
+  }
+  *i = 0;
+  
   text_layer_set_text(s_time_layer_hour, s_buffer_hour);
   
   strftime(s_buffer_min, sizeof(s_buffer_min), clock_is_24h_style() ? "%M" : "%M", tick_time);
