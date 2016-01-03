@@ -39,6 +39,54 @@ static void setLayers(){
       background = GColorRed;
       dateText = GColorWhite;
     }
+    if(code == 3){ // Brazil
+      striping = GColorBlue;
+      maintext = GColorYellow;
+      background = GColorJaegerGreen;
+      dateText = GColorWhite;
+    }
+    if(code == 4){ // China
+      striping = GColorYellow;
+      maintext = GColorRed;
+      background = GColorRed;
+      dateText = GColorWhite;
+    }
+    if(code == 5){ // India
+      striping = GColorJaegerGreen;
+      maintext = GColorWhite;
+      background = GColorOrange;
+      dateText = GColorWhite;
+    }
+    if(code == 6){ // Indonesia
+      striping = GColorWhite;
+      maintext = GColorRed;
+      background = GColorRed;
+      dateText = GColorWhite;
+    }
+    if(code == 7){ // Japan
+      striping = GColorRed;
+      maintext = GColorWhite;
+      background = GColorWhite;
+      dateText = GColorRed;
+    }
+    if(code == 8){ // Nigeria
+      striping = GColorWhite;
+      maintext = GColorJaegerGreen;
+      background = GColorJaegerGreen;
+      dateText = GColorWhite;
+    }
+    if(code == 9){ // Pakistan
+      striping = GColorJaegerGreen;
+      maintext = GColorWhite;
+      background = GColorWhite;
+      dateText = GColorJaegerGreen;
+    }
+    if(code == 10){ // Russia
+      striping = GColorRed;
+      maintext = GColorWhite;
+      background = GColorWhite;
+      dateText = GColorBlue;
+    }
     if(code == 11){ // UK
       striping = GColorWhite;
       maintext = GColorRed;
