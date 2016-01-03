@@ -7,7 +7,6 @@ static TextLayer *s_date_layer;
 static TextLayer *s_day_layer;
 
 #define KEY_COUNTRY     0
-static int8_t code = 0;
 
 
 // Write the current hours and minutes into a buffer
@@ -20,7 +19,8 @@ static void inbox_received_handler(DictionaryIterator *iter, void *context) {
   Tuple *country_t = dict_find(iter, KEY_COUNTRY);
   
   if(country_t) {
-    code = country_t->value->int8;
+    int32_t code = country_t->value->int32;
+    persist_write_int(KEY_COUNTRY, code);
 }
 
 }
@@ -53,7 +53,8 @@ printf("%s\n",s); /* now use s instead of str */
   GColor toptext = GColorRed;
   GColor bottomtext = GColorBlue;
 
-APP_LOG(APP_LOG_LEVEL_DEBUG, "Loop index now %d", code);
+  if(persist_read_int(KEY_COUNTRY)){
+    uint32_t code = persist_read_int(KEY_COUNTRY);
     if(code == 0){ // USA
       striping = GColorWhite;
       toptext = GColorRed;
@@ -65,7 +66,7 @@ APP_LOG(APP_LOG_LEVEL_DEBUG, "Loop index now %d", code);
       bottomtext = GColorWhite;
     }
     if(code == 2){ // England
-      striping = GColorCobaltBlue;
+      striping = GColorBlue;
       toptext = GColorWhite;
       bottomtext = GColorRed;
     }
@@ -75,6 +76,7 @@ APP_LOG(APP_LOG_LEVEL_DEBUG, "Loop index now %d", code);
   text_layer_set_background_color(s_time_layer_hour, striping);
   text_layer_set_text_color(s_time_layer_minute, bottomtext);
   text_layer_set_background_color(s_time_layer_minute, striping);
+  }
   
 }
 
@@ -89,23 +91,6 @@ static void main_window_load(Window *window) {
   GColor striping = GColorWhite;
   GColor toptext = GColorRed;
   GColor bottomtext = GColorBlue;
-
-  APP_LOG(APP_LOG_LEVEL_DEBUG, "Loop index now %d", code);
-    if(code == 0){ // USA
-      striping = GColorWhite;
-      toptext = GColorRed;
-      bottomtext = GColorBlue;
-    }
-    if(code == 1){ // Argentina
-      striping = GColorBlueMoon;
-      toptext = GColorYellow;
-      bottomtext = GColorWhite;
-    }
-    if(code == 2){ // England
-      striping = GColorCobaltBlue;
-      toptext = GColorWhite;
-      bottomtext = GColorRed;
-    }
 
   s_day_layer = text_layer_create(GRect(0, PBL_IF_ROUND_ELSE(5, 5), bounds.size.w, 50));
   text_layer_set_text_color(s_day_layer, GColorWhite);
