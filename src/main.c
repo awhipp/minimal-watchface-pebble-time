@@ -92,6 +92,25 @@ static void main_window_load(Window *window) {
   GColor toptext = GColorRed;
   GColor bottomtext = GColorBlue;
 
+  if(persist_read_int(KEY_COUNTRY)){
+    uint32_t code = persist_read_int(KEY_COUNTRY);
+    if(code == 0){ // USA
+      striping = GColorWhite;
+      toptext = GColorRed;
+      bottomtext = GColorBlue;
+    }
+    if(code == 1){ // Argentina
+      striping = GColorBlueMoon;
+      toptext = GColorYellow;
+      bottomtext = GColorWhite;
+    }
+    if(code == 2){ // England
+      striping = GColorBlue;
+      toptext = GColorWhite;
+      bottomtext = GColorRed;
+    }
+}
+
   s_day_layer = text_layer_create(GRect(0, PBL_IF_ROUND_ELSE(5, 5), bounds.size.w, 50));
   text_layer_set_text_color(s_day_layer, GColorWhite);
   text_layer_set_background_color(s_day_layer, GColorBlack);
