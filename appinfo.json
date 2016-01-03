@@ -6,26 +6,27 @@
         "configurable"
     ],
     "companyName": "Alexander the Dev",
-    "longName": "The Patriotic",
+    "longName": "The Nationalist Watch Face",
     "projectType": "native",
     "resources": {
         "media": [
             {
                 "file": "images/menu_icon",
-                "name": "IMAGE_MENU_ICON",
+                "menuIcon": true,
+                "name": "menu_icon",
                 "targetPlatforms": null,
                 "type": "png"
             }
         ]
     },
     "sdkVersion": "3",
-    "shortName": "Patriotic",
+    "shortName": "Nationalist",
     "targetPlatforms": [
         "basalt",
         "chalk"
     ],
     "uuid": "e368dce3-09af-4d27-9ce2-36a9ab578075",
-    "versionLabel": "0.2",
+    "versionLabel": "1.0",
     "watchapp": {
         "watchface": true
     }
