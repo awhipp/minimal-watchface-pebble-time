@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <title>Nationalist Configuration</title>
+  <link rel='stylesheet' type='text/css' href='css/slate.min.css'>
+  <script src='js/slate.min.js'></script>
+  <style>
+  .title {
+    padding: 15px 10px;
+    text-transform: uppercase;
+    font-family: 'PT Sans', sans-serif;
+    font-size: 1.2em;
+    font-weight: 500;
+    color: #888888;
+    text-align: center;
+  }
+  </style>
+  </head>
+
+  <body>
+    <h1 class='title'>Patriotic Clock Configuration</h1>
+
+    <div class='item-container'>
+      <div class='item-container-content'>
+        <div class='item'>
+          Use this configuration page to choose the settings you would like applied to this app.
+        </div>
+      </div>
+    </div>
+
+    <div class='item-container'>
+      <div class='item-container-header'>Customizability</div>
+      <div class='item-container-content'>
+	    <label class="item">
+	      Select Country
+	      <select id="select_country" name="select-country" dir='rtl' class="item-select">
+	        <option class="item-select-option" value="0" selected>United States</option>
+	        <option class="item-select-option" value="1">Argentina</option>
+	        <option class="item-select-option" value="2">Bangladesh</option>
+	        <option class="item-select-option" value="3">Brazil</option>
+	        <option class="item-select-option" value="4">China</option>
+	        <option class="item-select-option" value="5">India</option>
+	        <option class="item-select-option" value="6">Indonesia</option>
+	        <option class="item-select-option" value="7">Japan</option>
+	        <option class="item-select-option" value="8">Nigeria</option>
+	        <option class="item-select-option" value="9">Pakistan</option>
+	        <option class="item-select-option" value="10">Russia</option>
+	        <option class="item-select-option" value="11">United Kingdom</option>
+	      </select>
+    	</label>
+      </div>
+      <div class='item-container-footer'>
+        Choose the country you want your watchface to resemble. Theme based on primary colors of nation's flag.
+      </div>
+    </div>
+
+    <div class='item-container'>
+      <div class='button-container'>
+        <input id='submit_button' type='button' class='item-button' value='SUBMIT'>
+      </div>
+    </div>
+  </body>
+  <script>
+  function getConfigData() {
+	var e = document.getElementById("select_country");
+	var country = e.options[e.selectedIndex].value;
+
+    var options = {
+      'country': country
+    };
+
+    // Save for next launch
+    localStorage['country'] = options['country'];
+
+    console.log('Got options: ' + JSON.stringify(options));
+    return options;
+  }
+
+  function getQueryParam(variable, defaultValue) {
+    var query = location.search.substring(1);
+    var vars = query.split('&');
+    for (var i = 0; i < vars.length; i++) {
+      var pair = vars[i].split('=');
+      if (pair[0] === variable) {
+        return decodeURIComponent(pair[1]);
+      }
+    }
+    return defaultValue || false;
+  }
+
+  var submitButton = document.getElementById('submit_button');
+  submitButton.addEventListener('click', function() {
+    console.log('Submit');
+
+    // Set the return URL depending on the runtime environment
+    var return_to = getQueryParam('return_to', 'pebblejs://close#');
+    document.location = return_to + encodeURIComponent(JSON.stringify(getConfigData()));
+  });
+
+  (function() {
+
+	var element = document.getElementById('select_country');
+
+    // Load any previously saved configuration, if available
+    if(localStorage['country']) {
+    	element.value = localStorage['country'];
+    }
+  })();
+  </script>
+</html>
