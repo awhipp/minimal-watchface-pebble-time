@@ -21,7 +21,6 @@
     "sdkVersion": "3",
     "shortName": "Patriotic",
     "targetPlatforms": [
-        "aplite",
         "basalt",
         "chalk"
     ],
