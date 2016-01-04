@@ -17,26 +17,26 @@ Live application can be found at: https://apps.getpebble.com/en_US/application/5
 + css/*
 
 #### Supports the countries:
-+ United States 
-+ Argentina 
-+ Bangladesh 
-+ Brazil 
-+ China 
-+ India 
-+ Indonesia 
-+ Japan 
-+ Nigeria 
-+ Pakistan 
-+ Russia 
++ Argentina
++ Bangladesh
++ Brazil
++ China
++ Democratic Republic of the Congo
++ Egypt
++ Ethiopia
++ Germany
++ India
++ Indonesia
++ Iran
++ Japan
++ Mexico
++ Nigeria
++ Pakistan
++ Philippines
++ Russia
++ Thailand
++ Trinidad and Tobago
++ Turkey
 + United Kingdom
-+ Mexico 
-+ Philippines 
-+ Ethiopia 
-+ Vietnam 
-+ Egypt 
-+ Turkey 
-+ Germany 
-+ Iran 
-+ Democratic Republic of the Congo 
-+ Thailand 
-+ Trinidad and Tobago 
++ United States
++ Vietnam
