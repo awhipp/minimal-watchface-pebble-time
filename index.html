@@ -46,6 +46,16 @@
 	        <option class="item-select-option" value="9">Pakistan</option>
 	        <option class="item-select-option" value="10">Russia</option>
 	        <option class="item-select-option" value="11">United Kingdom</option>
+	        <option class="item-select-option" value="12">Mexico</option>
+	        <option class="item-select-option" value="13">Philippines</option>
+	        <option class="item-select-option" value="14">Ethiopia</option>
+	        <option class="item-select-option" value="15">Vietnam</option>
+	        <option class="item-select-option" value="16">Egypt</option>
+	        <option class="item-select-option" value="17">Turkey</option>
+	        <option class="item-select-option" value="18">Germany</option>
+	        <option class="item-select-option" value="19">Iran</option>
+	        <option class="item-select-option" value="20">Democratic Republic of the Congo</option>
+	        <option class="item-select-option" value="21">Thailand</option>
 	      </select>
     	</label>
       </div>
@@ -100,6 +110,21 @@
   (function() {
 
 	var element = document.getElementById('select_country');
+
+    var tmpAry = new Array();
+    for (var i=0;i<element.options.length;i++) {
+        tmpAry[i] = new Array();
+        tmpAry[i][0] = element.options[i].text;
+        tmpAry[i][1] = element.options[i].value;
+    }
+    tmpAry.sort();
+    while (element.options.length > 0) {
+        element.options[0] = null;
+    }
+    for (var i=0;i<tmpAry.length;i++) {
+        var op = new Option(tmpAry[i][0], tmpAry[i][1]);
+        element.options[i] = op;
+    }
 
     // Load any previously saved configuration, if available
     if(localStorage['country']) {
