@@ -16,7 +16,7 @@ Live application can be found at: https://apps.getpebble.com/en_US/application/5
 + fonts/*
 + css/*
 
-#### Supports the countries:
+#### Supports the countries (Top 20 most populous countries plus Argentina / Trinidad & Tobago):
 + Argentina
 + Bangladesh
 + Brazil
