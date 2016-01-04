@@ -23,6 +23,7 @@ static void setLayers(){
 
   if(persist_read_int(KEY_COUNTRY)){
     uint32_t code = persist_read_int(KEY_COUNTRY);
+    // Version 1.0
     if(code == 0){ // USA
       striping = GColorWhite;
       maintext = GColorRed;
@@ -92,6 +93,84 @@ static void setLayers(){
       maintext = GColorRed;
       background = GColorBlue;
       dateText = GColorWhite;
+    }
+    // Version 1.1
+    if(code == 12){ // Mexico 
+      striping = GColorJaegerGreen;
+      maintext = GColorWhite;
+      background = GColorRed;
+      dateText = GColorWhite;
+      
+    }
+    if(code == 13){ // Philippines 
+      striping = GColorJaegerGreen;
+      maintext = GColorRed;
+      background = GColorBlue;
+      dateText = GColorYellow;
+      
+    }
+    if(code == 14){ // Ethiopia 
+      striping = GColorBlue;
+      maintext = GColorRed;
+      background = GColorYellow;
+      dateText = GColorJaegerGreen;
+      
+    }
+    if(code == 15){ // Vietnam 
+      striping = GColorYellow;
+      maintext = GColorRed;
+      background = GColorJaegerGreen;
+      dateText = GColorWhite;
+      
+    }
+    if(code == 16){ // Egypt 
+      striping = GColorBlack;
+      maintext = GColorRed;
+      background = GColorWhite;
+      dateText = GColorRed;
+      
+    }
+    if(code == 17){ // Turkey 
+      striping = GColorWhite;
+      maintext = GColorJaegerGreen;
+      background = GColorRed;
+      dateText = GColorWhite;
+      
+    }
+    if(code == 18){ // Germany 
+      striping = GColorRed;
+      maintext = GColorChromeYellow;
+      background = GColorBlack;
+      dateText = GColorChromeYellow;
+      
+    }
+    if(code == 19){ // Iran 
+      striping = GColorRed;
+      maintext = GColorWhite;
+      background = GColorJaegerGreen;
+      dateText = GColorWhite;
+      
+    }
+    if(code == 20){ // Democratic Republic of the Congo
+      striping = GColorRed;
+      maintext = GColorYellow;
+      background = GColorBlue;
+      dateText = GColorYellow;
+      
+    }
+    if(code == 21){ // Thailand 
+      striping = GColorRed;
+      maintext = GColorWhite;
+      background = GColorBlue;
+      dateText = GColorWhite;
+      
+    }
+    if(code == 22){ // Trinidad and Tobago
+      striping = GColorBlack;
+      maintext = GColorWhite;
+      background = GColorRed;
+      dateText = GColorWhite;
+      
     }
   }
 

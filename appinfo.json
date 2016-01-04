@@ -14,20 +14,16 @@
                 "file": "images/menu_icon",
                 "menuIcon": true,
                 "name": "menu_icon",
-                "targetPlatforms": null,
                 "type": "png"
             }
         ]
     },
-    "sdkVersion": "3",
+    "sdkVersion": "2",
     "shortName": "Nationalist",
-    "targetPlatforms": [
-        "basalt",
-        "chalk"
-    ],
     "uuid": "e368dce3-09af-4d27-9ce2-36a9ab578075",
-    "versionLabel": "1.0",
+    "versionCode": 1,
+    "versionLabel": "1.1",
     "watchapp": {
-        "watchface": true
+        "watchface": false
     }
 }
