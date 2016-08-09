@@ -1,0 +1,38 @@
+{
+    "author": "Alexander the Dev",
+    "dependencies": {},
+    "keywords": [],
+    "name": "nationalist",
+    "pebble": {
+        "capabilities": [
+            "configurable"
+        ],
+        "displayName": "The Nationalist",
+        "enableMultiJS": false,
+        "messageKeys": {
+            "KEY_COUNTRY": 0
+        },
+        "projectType": "native",
+        "resources": {
+            "media": [
+                {
+                    "file": "images/menu_icon",
+                    "menuIcon": true,
+                    "name": "menu_icon",
+                    "targetPlatforms": null,
+                    "type": "png"
+                }
+            ]
+        },
+        "sdkVersion": "3",
+        "targetPlatforms": [
+            "basalt",
+            "chalk"
+        ],
+        "uuid": "e368dce3-09af-4d27-9ce2-36a9ab578075",
+        "watchapp": {
+            "watchface": true
+        }
+    },
+    "version": "1.1.0"
+}
