@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
   <title>Nationalist Configuration</title>
   <link rel='stylesheet' type='text/css' href='css/slate.min.css'>
   <script src='js/slate.min.js'></script>
@@ -15,122 +15,369 @@
     text-align: center;
   }
   </style>
-  </head>
+</head>
 
-  <body>
-    <h1 class='title'>Patriotic Clock Configuration</h1>
+<body>
+  <h1 class='title'>Patriotic Clock Configuration</h1>
 
-    <div class='item-container'>
-      <div class='item-container-content'>
-        <div class='item'>
-          Use this configuration page to choose the settings you would like applied to this app.
-        </div>
+  <div class='item-container'>
+    <div class='item-container-content'>
+      <div class='item'>
+        Use this configuration page to choose the settings you would like applied to this app.
       </div>
     </div>
+  </div>
 
-    <div class='item-container'>
-      <div class='item-container-header'>Select Country</div>
-      <div class='item-container-content'>
-	    <label class="item">
-	    	-
-	      <select id="select_country" name="select-country" dir='rtl' class="item-select">
-	        <option class="item-select-option" value="0" selected>United States</option>
-	        <option class="item-select-option" value="1">Argentina</option>
-	        <option class="item-select-option" value="2">Bangladesh</option>
-	        <option class="item-select-option" value="3">Brazil</option>
-	        <option class="item-select-option" value="4">China</option>
-	        <option class="item-select-option" value="5">India</option>
-	        <option class="item-select-option" value="6">Indonesia</option>
-	        <option class="item-select-option" value="7">Japan</option>
-	        <option class="item-select-option" value="8">Nigeria</option>
-	        <option class="item-select-option" value="9">Pakistan</option>
-	        <option class="item-select-option" value="10">Russia</option>
-	        <option class="item-select-option" value="11">United Kingdom</option>
-	        <option class="item-select-option" value="12">Mexico</option>
-	        <option class="item-select-option" value="13">Philippines</option>
-	        <option class="item-select-option" value="14">Ethiopia</option>
-	        <option class="item-select-option" value="15">Vietnam</option>
-	        <option class="item-select-option" value="16">Egypt</option>
-	        <option class="item-select-option" value="17">Turkey</option>
-	        <option class="item-select-option" value="18">Germany</option>
-	        <option class="item-select-option" value="19">Iran</option>
-	        <option class="item-select-option" value="20">Democratic Republic of the Congo</option>
-	        <option class="item-select-option" value="21">Thailand</option>
-	        <option class="item-select-option" value="22">Trinidad and Tobago</option>
-	      </select>
-    	</label>
-      </div>
-      <div class='item-container-footer'>
-        Choose the country you want your watchface to resemble. Theme based on primary colors of nation's flag.
-      </div>
+  <div class='item-container'>
+    <div class='item-container-header'>Select Country</div>
+    <div class='item-container-content'>
+      <label class="item">
+        -
+        <select id="select_country" name="select-country" dir='rtl' class="item-select">
+          <option class="item-select-option" value="0" selected>United States</option>
+          <option class="item-select-option" value="1">Argentina</option>
+          <option class="item-select-option" value="2">Bangladesh</option>
+          <option class="item-select-option" value="3">Brazil</option>
+          <option class="item-select-option" value="4">China</option>
+          <option class="item-select-option" value="5">India</option>
+          <option class="item-select-option" value="6">Indonesia</option>
+          <option class="item-select-option" value="7">Japan</option>
+          <option class="item-select-option" value="8">Nigeria</option>
+          <option class="item-select-option" value="9">Pakistan</option>
+          <option class="item-select-option" value="10">Russia</option>
+          <option class="item-select-option" value="11">United Kingdom</option>
+          <option class="item-select-option" value="12">Mexico</option>
+          <option class="item-select-option" value="13">Philippines</option>
+          <option class="item-select-option" value="14">Ethiopia</option>
+          <option class="item-select-option" value="15">Vietnam</option>
+          <option class="item-select-option" value="16">Egypt</option>
+          <option class="item-select-option" value="17">Turkey</option>
+          <option class="item-select-option" value="18">Germany</option>
+          <option class="item-select-option" value="19">Iran</option>
+          <option class="item-select-option" value="20">Democratic Republic of the Congo</option>
+          <option class="item-select-option" value="21">Thailand</option>
+          <option class="item-select-option" value="22">Trinidad and Tobago</option>
+          <option class="item-select-option" value="255">Custom</option>
+        </select>
+      </label>
     </div>
-
-    <div class='item-container'>
-      <div class='button-container'>
-        <input id='submit_button' type='button' class='item-button' value='SUBMIT'>
-      </div>
+    <div class='item-container-footer'>
+      Choose the country you want your watchface to resemble. Theme based on primary colors of nation's flag.
     </div>
-  </body>
-  <script>
-  function getConfigData() {
-	var e = document.getElementById("select_country");
-	var country = e.options[e.selectedIndex].value;
+  </div>
 
-    var options = {
-      'country': country
-    };
+  <div class='item-container'>
+    <div class='item-container-header'>Custom: Stripes Color</div>
+    <div class='item-container-content'>
+      <label class="item">
+        -
+        <select id="select_striping" name="select-striping" dir='rtl' class="item-select">
+          <option class="item-select-option" value="00FF00">Light Green</option>
+          <option class="item-select-option" value="00AA55">Green</option>
+          <option class="item-select-option" value="005500">Dark Green</option>
+          <option class="item-select-option" value="555500">Brown</option>
+          <option class="item-select-option" value="FFFF00">Yellow</option>
+          <option class="item-select-option" value="FFAA00">Orange</option>
+          <option class="item-select-option" value="FF0000">Red</option>
+          <option class="item-select-option" value="AA0000">Dark Red</option>
+          <option class="item-select-option" value="550055">Dark Purple</option>
+          <option class="item-select-option" value="AA00AA">Purple</option>
+          <option class="item-select-option" value="FF00AA">Pink</option>
+          <option class="item-select-option" value="AA00FF">Violet</option>
+          <option class="item-select-option" value="5500AA">Indigo</option>
+          <option class="item-select-option" value="0000AA">Blue</option>
+          <option class="item-select-option" value="000055">Dark Blue</option>
+          <option class="item-select-option" value="55AAFF">Light Blue</option>
+          <option class="item-select-option" value="000000">Black</option>
+          <option class="item-select-option" value="FFFFFF">White</option>
+          <option class="item-select-option" value="AAAAAA">Light Grey</option>
+          <option class="item-select-option" value="555555">Dark Grey</option>
+        </select>
+      </label>
+    </div>
+    <div class='item-container-footer'>
+      The color you want for the two stripes on the watch face.<br/>Must set Select Country to "Custom"
+    </div>
+  </div>
 
-    // Save for next launch
-    localStorage['country'] = options['country'];
+  <div class='item-container'>
+    <div class='item-container-header'>Custom: Clock Text Color</div>
+    <div class='item-container-content'>
+      <label class="item">
+        -
+        <select id="select_maintext" name="select-maintext" dir='rtl' class="item-select">
+          <option class="item-select-option" value="00FF00">Light Green</option>
+          <option class="item-select-option" value="00AA55">Green</option>
+          <option class="item-select-option" value="005500">Dark Green</option>
+          <option class="item-select-option" value="555500">Brown</option>
+          <option class="item-select-option" value="FFFF00">Yellow</option>
+          <option class="item-select-option" value="FFAA00">Orange</option>
+          <option class="item-select-option" value="FF0000">Red</option>
+          <option class="item-select-option" value="AA0000">Dark Red</option>
+          <option class="item-select-option" value="550055">Dark Purple</option>
+          <option class="item-select-option" value="AA00AA">Purple</option>
+          <option class="item-select-option" value="FF00AA">Pink</option>
+          <option class="item-select-option" value="AA00FF">Violet</option>
+          <option class="item-select-option" value="5500AA">Indigo</option>
+          <option class="item-select-option" value="0000AA">Blue</option>
+          <option class="item-select-option" value="000055">Dark Blue</option>
+          <option class="item-select-option" value="55AAFF">Light Blue</option>
+          <option class="item-select-option" value="000000">Black</option>
+          <option class="item-select-option" value="FFFFFF">White</option>
+          <option class="item-select-option" value="AAAAAA">Light Grey</option>
+          <option class="item-select-option" value="555555">Dark Grey</option>
+        </select>
+      </label>
+    </div>
+    <div class='item-container-footer'>
+      The color you want for the clock text on the watch face to be.<br/>Must set Select Country to "Custom"
+    </div>
+  </div>
 
-    console.log('Got options: ' + JSON.stringify(options));
-    return options;
+  <div class='item-container'>
+    <div class='item-container-header'>Custom: Background Color</div>
+    <div class='item-container-content'>
+      <label class="item">
+        -
+        <select id="select_background" name="select-background" dir='rtl' class="item-select">
+          <option class="item-select-option" value="00FF00">Light Green</option>
+          <option class="item-select-option" value="00AA55">Green</option>
+          <option class="item-select-option" value="005500">Dark Green</option>
+          <option class="item-select-option" value="555500">Brown</option>
+          <option class="item-select-option" value="FFFF00">Yellow</option>
+          <option class="item-select-option" value="FFAA00">Orange</option>
+          <option class="item-select-option" value="FF0000">Red</option>
+          <option class="item-select-option" value="AA0000">Dark Red</option>
+          <option class="item-select-option" value="550055">Dark Purple</option>
+          <option class="item-select-option" value="AA00AA">Purple</option>
+          <option class="item-select-option" value="FF00AA">Pink</option>
+          <option class="item-select-option" value="AA00FF">Violet</option>
+          <option class="item-select-option" value="5500AA">Indigo</option>
+          <option class="item-select-option" value="0000AA">Blue</option>
+          <option class="item-select-option" value="000055">Dark Blue</option>
+          <option class="item-select-option" value="55AAFF">Light Blue</option>
+          <option class="item-select-option" value="000000">Black</option>
+          <option class="item-select-option" value="FFFFFF">White</option>
+          <option class="item-select-option" value="AAAAAA">Light Grey</option>
+          <option class="item-select-option" value="555555">Dark Grey</option>
+        </select>
+      </label>
+    </div>
+    <div class='item-container-footer'>
+      The color you want the background of the watch face to be.<br/>Must set Select Country to "Custom"
+    </div>
+  </div>
+
+  <div class='item-container'>
+    <div class='item-container-header'>Custom: Date Text Color</div>
+    <div class='item-container-content'>
+      <label class="item">
+        -
+        <select id="select_datetext" name="select-datetext" dir='rtl' class="item-select">
+          <option class="item-select-option" value="00FF00">Light Green</option>
+          <option class="item-select-option" value="00AA55">Green</option>
+          <option class="item-select-option" value="005500">Dark Green</option>
+          <option class="item-select-option" value="555500">Brown</option>
+          <option class="item-select-option" value="FFFF00">Yellow</option>
+          <option class="item-select-option" value="FFAA00">Orange</option>
+          <option class="item-select-option" value="FF0000">Red</option>
+          <option class="item-select-option" value="AA0000">Dark Red</option>
+          <option class="item-select-option" value="550055">Dark Purple</option>
+          <option class="item-select-option" value="AA00AA">Purple</option>
+          <option class="item-select-option" value="FF00AA">Pink</option>
+          <option class="item-select-option" value="AA00FF">Violet</option>
+          <option class="item-select-option" value="5500AA">Indigo</option>
+          <option class="item-select-option" value="0000AA">Blue</option>
+          <option class="item-select-option" value="000055">Dark Blue</option>
+          <option class="item-select-option" value="55AAFF">Light Blue</option>
+          <option class="item-select-option" value="000000">Black</option>
+          <option class="item-select-option" value="FFFFFF">White</option>
+          <option class="item-select-option" value="AAAAAA">Light Grey</option>
+          <option class="item-select-option" value="555555">Dark Grey</option>
+        </select>
+      </label>
+    </div>
+    <div class='item-container-footer'>
+      The color you want the date text to be.<br/>Must set Select Country to "Custom"
+    </div>
+  </div>
+
+
+
+  <div class='item-container'>
+    <div class='button-container'>
+      <input id='submit_button' type='button' class='item-button' value='SUBMIT'>
+    </div>
+  </div>
+</body>
+<script>
+function getConfigData() {
+  var select_country = document.getElementById("select_country");
+  var country = select_country.options[select_country.selectedIndex].value;
+
+  var select_striping = document.getElementById("select_striping");
+  var striping = select_striping.options[select_striping.selectedIndex].value;
+
+  var select_maintext = document.getElementById("select_maintext");
+  var maintext = select_maintext.options[select_maintext.selectedIndex].value;
+
+  var select_background = document.getElementById("select_background");
+  var background = select_background.options[select_background.selectedIndex].value;
+
+  var select_datetext = document.getElementById("select_datetext");
+  var datetext = select_datetext.options[select_datetext.selectedIndex].value;
+
+  var options = {
+    'country': country,
+    'striping': striping,
+    'maintext': maintext,
+    'background': background,
+    'datetext': datetext
+  };
+
+  // Save for next launch
+  localStorage['country'] = options['country'];
+  localStorage['striping'] = options['striping'];
+  localStorage['maintext'] = options['maintext'];
+  localStorage['background'] = options['background'];
+  localStorage['datetext'] = options['datetext'];
+
+  console.log('Got options: ' + JSON.stringify(options));
+  return options;
+}
+
+function getQueryParam(variable, defaultValue) {
+  var query = location.search.substring(1);
+  var vars = query.split('&');
+  for (var i = 0; i < vars.length; i++) {
+    var pair = vars[i].split('=');
+    if (pair[0] === variable) {
+      return decodeURIComponent(pair[1]);
+    }
+  }
+  return defaultValue || false;
+}
+
+var submitButton = document.getElementById('submit_button');
+submitButton.addEventListener('click', function() {
+  console.log('Submit');
+
+  // Set the return URL depending on the runtime environment
+  var return_to = getQueryParam('return_to', 'pebblejs://close#');
+  document.location = return_to + encodeURIComponent(JSON.stringify(getConfigData()));
+});
+
+(function() {
+
+  var element = document.getElementById('select_country');
+
+  var tmpAry = new Array();
+  for (var i=0;i<element.options.length;i++) {
+    tmpAry[i] = new Array();
+    tmpAry[i][0] = element.options[i].text;
+    tmpAry[i][1] = element.options[i].value;
+  }
+  tmpAry.sort();
+  while (element.options.length > 0) {
+    element.options[0] = null;
+  }
+  for (var i=0;i<tmpAry.length;i++) {
+    var op = new Option(tmpAry[i][0], tmpAry[i][1]);
+    element.options[i] = op;
   }
 
-  function getQueryParam(variable, defaultValue) {
-    var query = location.search.substring(1);
-    var vars = query.split('&');
-    for (var i = 0; i < vars.length; i++) {
-      var pair = vars[i].split('=');
-      if (pair[0] === variable) {
-        return decodeURIComponent(pair[1]);
-      }
-    }
-    return defaultValue || false;
+  // Load any previously saved configuration, if available
+  if(localStorage['country']) {
+    element.value = localStorage['country'];
   }
 
-  var submitButton = document.getElementById('submit_button');
-  submitButton.addEventListener('click', function() {
-    console.log('Submit');
+  element = document.getElementById('select_striping');
 
-    // Set the return URL depending on the runtime environment
-    var return_to = getQueryParam('return_to', 'pebblejs://close#');
-    document.location = return_to + encodeURIComponent(JSON.stringify(getConfigData()));
-  });
+  var tmpAry = new Array();
+  for (var i=0;i<element.options.length;i++) {
+    tmpAry[i] = new Array();
+    tmpAry[i][0] = element.options[i].text;
+    tmpAry[i][1] = element.options[i].value;
+  }
+  tmpAry.sort();
+  while (element.options.length > 0) {
+    element.options[0] = null;
+  }
+  for (var i=0;i<tmpAry.length;i++) {
+    var op = new Option(tmpAry[i][0], tmpAry[i][1]);
+    element.options[i] = op;
+  }
 
-  (function() {
+  // Load any previously saved configuration, if available
+  if(localStorage['striping']) {
+    element.value = localStorage['striping'];
+  }
 
-	var element = document.getElementById('select_country');
+  element = document.getElementById('select_maintext');
 
-    var tmpAry = new Array();
-    for (var i=0;i<element.options.length;i++) {
-        tmpAry[i] = new Array();
-        tmpAry[i][0] = element.options[i].text;
-        tmpAry[i][1] = element.options[i].value;
-    }
-    tmpAry.sort();
-    while (element.options.length > 0) {
-        element.options[0] = null;
-    }
-    for (var i=0;i<tmpAry.length;i++) {
-        var op = new Option(tmpAry[i][0], tmpAry[i][1]);
-        element.options[i] = op;
-    }
+  var tmpAry = new Array();
+  for (var i=0;i<element.options.length;i++) {
+    tmpAry[i] = new Array();
+    tmpAry[i][0] = element.options[i].text;
+    tmpAry[i][1] = element.options[i].value;
+  }
+  tmpAry.sort();
+  while (element.options.length > 0) {
+    element.options[0] = null;
+  }
+  for (var i=0;i<tmpAry.length;i++) {
+    var op = new Option(tmpAry[i][0], tmpAry[i][1]);
+    element.options[i] = op;
+  }
 
-    // Load any previously saved configuration, if available
-    if(localStorage['country']) {
-    	element.value = localStorage['country'];
-    }
-  })();
-  </script>
+  // Load any previously saved configuration, if available
+  if(localStorage['maintext']) {
+    element.value = localStorage['maintext'];
+  }
+
+  element = document.getElementById('select_background');
+
+  var tmpAry = new Array();
+  for (var i=0;i<element.options.length;i++) {
+    tmpAry[i] = new Array();
+    tmpAry[i][0] = element.options[i].text;
+    tmpAry[i][1] = element.options[i].value;
+  }
+  tmpAry.sort();
+  while (element.options.length > 0) {
+    element.options[0] = null;
+  }
+  for (var i=0;i<tmpAry.length;i++) {
+    var op = new Option(tmpAry[i][0], tmpAry[i][1]);
+    element.options[i] = op;
+  }
+
+  // Load any previously saved configuration, if available
+  if(localStorage['background']) {
+    element.value = localStorage['background'];
+  }
+
+  element = document.getElementById('select_datetext');
+
+  var tmpAry = new Array();
+  for (var i=0;i<element.options.length;i++) {
+    tmpAry[i] = new Array();
+    tmpAry[i][0] = element.options[i].text;
+    tmpAry[i][1] = element.options[i].value;
+  }
+  tmpAry.sort();
+  while (element.options.length > 0) {
+    element.options[0] = null;
+  }
+  for (var i=0;i<tmpAry.length;i++) {
+    var op = new Option(tmpAry[i][0], tmpAry[i][1]);
+    element.options[i] = op;
+  }
+
+  // Load any previously saved configuration, if available
+  if(localStorage['datetext']) {
+    element.value = localStorage['datetext'];
+  }
+})();
+</script>
 </html>
